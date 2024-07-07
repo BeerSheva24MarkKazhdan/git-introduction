@@ -10,10 +10,12 @@ public static int multiply(int op1, int op2){
     return res;
 }
 public static int divide (int op1, int op2){
-    Integer res = null;
-    if (op2 != 0) {
-        res = op1 / op2;
-    }
+        int res = 0;
+        if (op2 == 0) {
+            System.out.println("Dividing on zero") ;
+        } else {
+            res = op1 / op2;
+        }
     return res;
 }
 public static int substract (int op1, int op2){
@@ -22,14 +24,11 @@ public static int substract (int op1, int op2){
 }
 public static int sumOfDigits (int number){
         number = Math.abs(number);
-        int length = String.valueOf(number).length();
-        int[] arr = new int [length];
         int sum = 0;
-        for (int i = 0; i < length; i++) {
-            int value = number % 10;
-            number /= 10;
-            arr[i] = value;
-            sum += arr[i];
+        while (number > 0) {
+           int digit = number % 10;
+           sum = sum + digit;
+           number /= 10;
         }
         return sum;
 }
@@ -42,14 +41,16 @@ public static int maxDigit (int number){
             number /= 10;
             if (maxvalue > max) {
                 max = maxvalue;
-            };
+            }
         }
     return max;
 }
 public static boolean isDividedOn (int number, int dividor){
         boolean result = false;
-        if (number % dividor == 0) {
-           result = true;
+        if (dividor == 0) {
+            System.out.println("Dividing on zero");
+        } else if (number % dividor == 0) {
+            result = true; 
         }
     return result;
 }
